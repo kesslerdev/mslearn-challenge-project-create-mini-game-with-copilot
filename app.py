@@ -13,6 +13,11 @@ class Colors:
     RESET = '\033[0m'
     BLUE_BOLD = BLUE + BOLD
     RED_BOLD = RED + BOLD
+    CYAN_BOLD = CYAN + BOLD
+    GREEN_BOLD = GREEN + BOLD
+    YELLOW_BOLD = YELLOW + BOLD
+    MAGENTA_BOLD = MAGENTA + BOLD
+    WHITE_BOLD = WHITE + BOLD
     
     @staticmethod
     def colorize(text, color):
@@ -33,7 +38,7 @@ def get_user_choice():
             
         # Handle help commands
         if choice in ['help', 'rules']:
-            print(Colors.colorize("\nRules:", Colors.BLUE + Colors.BOLD))
+            print(Colors.colorize("\nRules:", Colors.BLUE_BOLD))
             print(Colors.colorize("- Rock beats Scissors", Colors.BLUE))
             print(Colors.colorize("- Scissors beats Paper", Colors.BLUE))
             print(Colors.colorize("- Paper beats Rock\n", Colors.BLUE))
@@ -80,11 +85,11 @@ def display_result(user_choice, computer_choice, result):
     """
     Display the result of a round with formatted output.
     """
-    print(f"\n{Colors.colorize('You chose:', Colors.CYAN)} {Colors.colorize(user_choice.capitalize(), Colors.CYAN + Colors.BOLD)}")
-    print(f"{Colors.colorize('Computer chose:', Colors.CYAN)} {Colors.colorize(computer_choice.capitalize(), Colors.CYAN + Colors.BOLD)}")
-    
+    print(f"\n{Colors.colorize('You chose:', Colors.CYAN)} {Colors.colorize(user_choice.capitalize(), Colors.CYAN_BOLD)}")
+    print(f"{Colors.colorize('Computer chose:', Colors.CYAN)} {Colors.colorize(computer_choice.capitalize(), Colors.CYAN_BOLD)}")
+
     if result == 'tie':
-        print(Colors.colorize("It's a tie!", Colors.YELLOW + Colors.BOLD))
+        print(Colors.colorize("It's a tie!", Colors.YELLOW_BOLD))
     elif result == 'user':
         # Display winning message based on choices
         messages = {
@@ -92,7 +97,7 @@ def display_result(user_choice, computer_choice, result):
             ('scissors', 'paper'): "You win! Scissors cuts Paper.",
             ('paper', 'rock'): "You win! Paper covers Rock."
         }
-        print(Colors.colorize(messages[(user_choice, computer_choice)], Colors.GREEN + Colors.BOLD))
+        print(Colors.colorize(messages[(user_choice, computer_choice)], Colors.GREEN_BOLD))
     else:
         # Display losing message based on choices
         messages = {
@@ -100,15 +105,15 @@ def display_result(user_choice, computer_choice, result):
             ('paper', 'scissors'): "You lose! Scissors cuts Paper.",
             ('rock', 'paper'): "You lose! Paper covers Rock."
         }
-        print(Colors.colorize(messages[(user_choice, computer_choice)], Colors.RED + Colors.BOLD))
+        print(Colors.colorize(messages[(user_choice, computer_choice)], Colors.RED_BOLD))
 
 def play_game():
     """
     Main game loop that handles the gameplay flow.
     """
-    print(Colors.colorize("=== ROCK, PAPER, SCISSORS ===", Colors.MAGENTA + Colors.BOLD))
-    print(Colors.colorize("\nWelcome to Rock, Paper, Scissors!", Colors.BLUE + Colors.BOLD))
-    print(Colors.colorize("\nRules:", Colors.BLUE + Colors.BOLD))
+    print(Colors.colorize("=== ROCK, PAPER, SCISSORS ===", Colors.MAGENTA_BOLD))
+    print(Colors.colorize("\nWelcome to Rock, Paper, Scissors!", Colors.BLUE_BOLD))
+    print(Colors.colorize("\nRules:", Colors.BLUE_BOLD))
     print(Colors.colorize("- Rock beats Scissors", Colors.BLUE))
     print(Colors.colorize("- Scissors beats Paper", Colors.BLUE))
     print(Colors.colorize("- Paper beats Rock", Colors.BLUE))
@@ -146,24 +151,24 @@ def play_game():
             
         # Display current score
         score_text = f"Score - You: {user_wins} | Computer: {computer_wins} | Ties: {ties}"
-        print(f"\n{Colors.colorize(score_text, Colors.MAGENTA + Colors.BOLD)}")
+        print(f"\n{Colors.colorize(score_text, Colors.MAGENTA_BOLD)}")
         print(Colors.colorize("-" * 50, Colors.WHITE))
     
     # Display final statistics
-    print(Colors.colorize(f"\nFinal Score:", Colors.BLUE + Colors.BOLD))
+    print(Colors.colorize(f"\nFinal Score:", Colors.BLUE_BOLD))
     print(Colors.colorize(f"You: {user_wins} wins", Colors.GREEN))
     print(Colors.colorize(f"Computer: {computer_wins} wins", Colors.RED))
     print(Colors.colorize(f"Ties: {ties}", Colors.YELLOW))
     print(Colors.colorize(f"Total games played: {user_wins + computer_wins + ties}", Colors.WHITE))
     
     if user_wins > computer_wins:
-        print(Colors.colorize("Congratulations! You won overall!", Colors.GREEN + Colors.BOLD))
+        print(Colors.colorize("Congratulations! You won overall!", Colors.GREEN_BOLD))
     elif computer_wins > user_wins:
-        print(Colors.colorize("Computer wins overall! Better luck next time!", Colors.RED + Colors.BOLD))
+        print(Colors.colorize("Computer wins overall! Better luck next time!", Colors.RED_BOLD))
     else:
-        print(Colors.colorize("It's a tie overall! Great game!", Colors.YELLOW + Colors.BOLD))
+        print(Colors.colorize("It's a tie overall! Great game!", Colors.YELLOW_BOLD))
     
-    print(Colors.colorize("\nThanks for playing!", Colors.BLUE + Colors.BOLD))
+    print(Colors.colorize("\nThanks for playing!", Colors.BLUE_BOLD))
 
 def main():
     """
