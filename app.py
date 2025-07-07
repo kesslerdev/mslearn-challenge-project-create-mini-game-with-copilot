@@ -11,6 +11,8 @@ class Colors:
     WHITE = '\033[97m'
     BOLD = '\033[1m'
     RESET = '\033[0m'
+    BLUE_BOLD = BLUE + BOLD
+    RED_BOLD = RED + BOLD
     
     @staticmethod
     def colorize(text, color):
